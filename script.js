@@ -10,22 +10,23 @@ const lookup = {
   'Y': 'L','Z': 'M', '?': '?', ',': ','
 };
 
-function rot13(encodedStr){
-   let decodedStr;
-	for(let i =0;i<encodedStr.length;i++){
-		const asciiCode = encodedStr.charCodeAt(i);
-	     if(asciiCode<91 && asciiCode>64){
-		 asciiCode = asciiCode+13;
-		 const character = String.fromCharCode(asciiCode);
-		 decodedStr = decodedStr + `${character}` 
-		 }
-		 else{
-			const character2 =  encodedStr.charAt(i)
-		 	decodedStr = decodedStr + `${character2}` 
-		 }
-	}
-    return decodedStr;
-}
+function rot13(encodedStr) {
+  let decodedStr = '';
 
+  for (let i = 0; i < encodedStr.length; i++) {
+    let asciiCode = encodedStr.charCodeAt(i);
+
+    if (asciiCode < 91 && asciiCode > 64) {
+      asciiCode = asciiCode + 13;
+      const character = String.fromCharCode(asciiCode);
+      decodedStr = decodedStr + character;
+    } else {
+      const character2 = encodedStr.charAt(i);
+      decodedStr = decodedStr + character2;
+    }
+  }
+
+  return decodedStr;
+}
 
 module.exports = rot13;
