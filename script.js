@@ -17,7 +17,7 @@ function rot13(encodedStr) {
     let asciiCode = encodedStr.charCodeAt(i);
 
     if (asciiCode < 91 && asciiCode > 64) {
-      asciiCode = asciiCode + 13;
+      asciiCode = ((asciiCode - 65 + 13) % 26) + 65;
       const character = String.fromCharCode(asciiCode);
       decodedStr = decodedStr + character;
     } else {
