@@ -11,22 +11,20 @@ const lookup = {
 };
 
 function rot13(encodedStr){
-   let decodedArr = [];
+   let decodedStr;
 	for(let i =0;i<encodedStr.length;i++){
-		const char = lookup.encodedStr.charAt(i)
-        decodedArr.push(char)
-		
-		// const asciiCode = character.charCodeAt(i);
-	 //    if(asciiCode<91 && asciiCode>64){
-		// asciiCode = asciiCode+13;
-		// const character = String.fromCharCode(asciiCode);
-		// decodedArr.push(character)
-		// }
-		// else{
-		// 	decodedArr.push(String.fromCharCode(asciiCode))
-		// }
+		const asciiCode = encodedStr.charCodeAt(i);
+	     if(asciiCode<91 && asciiCode>64){
+		 asciiCode = asciiCode+13;
+		 const character = String.fromCharCode(asciiCode);
+		 decodedStr = decodedStr + `${character}` 
+		 }
+		 else{
+			const character2 =  encodedStr.charAt(i)
+		 	decodedStr = decodedStr + `${character2}` 
+		 }
 	}
-    return decodedArr;
+    return decodedStr;
 }
 
 
